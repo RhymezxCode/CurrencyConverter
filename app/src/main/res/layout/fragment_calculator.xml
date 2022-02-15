@@ -94,7 +94,6 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:text="@string/first_currency_value"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/first_currency_code"
@@ -144,7 +143,6 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:text="@string/second_currency_value"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/second_currency_code"
@@ -172,7 +170,7 @@
 
     <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/currency_one"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -184,6 +182,8 @@
         android:textColor="@color/black"
         android:textColorHint="@color/silver"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/data_conversion"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/second_currency"
         app:spinner_arrow_animate="true"
@@ -200,7 +200,7 @@
 
     <com.skydoves.powerspinner.PowerSpinnerView
         android:id="@+id/currency_two"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -213,6 +213,8 @@
         android:textColorHint="@color/silver"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/data_conversion"
         app:layout_constraintTop_toBottomOf="@+id/second_currency"
         app:spinner_arrow_animate="true"
         app:spinner_arrow_drawable="@drawable/ic_down"
@@ -228,11 +230,12 @@
 
     <ImageView
         android:id="@+id/data_conversion"
-        android:layout_width="wrap_content"
+        android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:src="@drawable/ic_data_transfer"
         app:layout_constraintEnd_toStartOf="@+id/currency_two"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/currency_one"
         app:layout_constraintTop_toBottomOf="@+id/second_currency" />
 

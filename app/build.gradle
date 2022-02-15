@@ -51,7 +51,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     //Graph View
-    implementation 'com.github.swapnil1104:CurveGraphView:{current_lib_ver}'
+//    implementation 'com.github.swapnil1104:CurveGraphView:{current_lib_ver}'
 
     //custom spinner
     implementation "com.github.skydoves:powerspinner:1.1.9"

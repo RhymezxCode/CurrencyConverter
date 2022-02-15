@@ -76,11 +76,11 @@ class ConverterViewModel(
         if (response.isSuccessful) {
             if(response.code() == 200){
                 response.body()?.let { resultResponse ->
-                    return Event(Result.Success(resultResponse))
+                        return Event(Result.Success(resultResponse))
                 }
             }else{
                 response.body()?.let {
-                    return Event(Result.Error("Error!!!"))
+                    return Event(Result.Error(it.error.info))
                 }
             }
         }

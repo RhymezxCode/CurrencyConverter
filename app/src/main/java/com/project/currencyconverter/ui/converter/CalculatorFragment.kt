@@ -15,6 +15,9 @@ import com.project.currencyconverter.data.util.Progress
 import com.project.currencyconverter.databinding.FragmentCalculatorBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.currencyconverter.application.MyApplication
+import com.project.currencyconverter.data.repository.ConverterRepository
+import com.project.currencyconverter.data.util.Event
 
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 
@@ -37,7 +40,9 @@ class CalculatorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         converterViewModel =
-            ViewModelProvider(this)[ConverterViewModel::class.java]
+            ViewModelProvider(this, ConverterViewModelFactory(MyApplication(),
+            ConverterRepository()
+            ))[ConverterViewModel::class.java]
 
         _binding = FragmentCalculatorBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -52,6 +57,7 @@ class CalculatorFragment : Fragment() {
         currencyList.add("AMD")
         currencyList.add("PLN")
         currencyList.add("USD")
+        currencyList.add("GBP")
 
 
         //first spinner implementation
@@ -59,7 +65,7 @@ class CalculatorFragment : Fragment() {
         currencyOneAdapter.setItems(currencyList)
         binding.currencyOne.setSpinnerAdapter(currencyOneAdapter)
         binding.currencyOne.setOnSpinnerItemSelectedListener(
-            OnSpinnerItemSelectedListener { oldIndex: Int, oldItem: String?, newIndex: Int, newItem: String? ->
+            OnSpinnerItemSelectedListener { _: Int, _: String?, _: Int, newItem: String? ->
                 binding.firstCurrencyCode.text = newItem
             })
 
@@ -76,8 +82,8 @@ class CalculatorFragment : Fragment() {
         //second spinner implementation
         val currencyTwoAdapter = DefaultSpinnerAdapter(binding.currencyTwo)
         currencyTwoAdapter.setItems(currencyList)
-        binding.currencyTwo.setSpinnerAdapter(currencyOneAdapter)
-        binding.currencyTwo.setOnSpinnerItemSelectedListener(OnSpinnerItemSelectedListener { oldIndex: Int, oldItem: String?, newIndex: Int, newItem: String? ->
+        binding.currencyTwo.setSpinnerAdapter(currencyTwoAdapter)
+        binding.currencyTwo.setOnSpinnerItemSelectedListener(OnSpinnerItemSelectedListener { _: Int, _: String?, _: Int, newItem: String? ->
             binding.secondCurrencyCode.text = newItem
         })
 
@@ -121,10 +127,15 @@ class CalculatorFragment : Fragment() {
                                     is Result.Success -> {
                                         progress.dismiss()
                                         response.data?.let {
-                                            binding.secondCurrencyValue.setText(
-                                                it.result.toString(),
-                                                TextView.BufferType.EDITABLE
-                                            )
+                                            if(it.success){
+                                                binding.secondCurrencyValue.setText(
+                                                    it.result.toString(),
+                                                    TextView.BufferType.EDITABLE
+                                                )
+                                            }else{
+                                                toast(it.error.info)
+                                            }
+
                                         }
 
                                     }
