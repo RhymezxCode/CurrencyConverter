@@ -11,5 +11,6 @@
     <string name="first_currency_value">1</string>
     <string name="second_currency_code">PLN</string>
     <string name="second_currency_value">4.285</string>
-    <string name="information"><u>Mid-market exchange rate at 13.78 UTC</u></string>
+    <string name="information_one"><u>Mid-market exchange rate at 13.78 UTC</u></string>
+    <string name="information_two"><u>Get rate alerts straight to your email inbox</u></string>
 </resources>
