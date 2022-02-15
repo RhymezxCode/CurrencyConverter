@@ -1,4 +1,4 @@
-package com.project.currencyconverter
+package com.project.currencyconverter.data.util
 
 /**
  * Created by Awodire Babajide samuel on 15/02/2022.
@@ -8,6 +8,7 @@ import android.content.Context
 import android.graphics.*
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.annotation.AttrRes
 
@@ -97,7 +98,7 @@ class CurveGraphDrawable : View {
 
     //is called by animator object
     fun setPhase(phase: Float) {
-        Logger.d("CurveGraphDrawable", "setPhase called with:$phase")
+        Log.d("CurveGraphDrawable", "setPhase called with:$phase")
         linePaint.pathEffect = createPathEffect(length, phase, 0.0f)
         invalidate() //will call onDraw
     }

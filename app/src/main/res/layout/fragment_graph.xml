@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/past30days"
         android:contentDescription="@string/full_stop_text" />
 
-    <com.project.currencyconverter.CurveGraphDrawable
+    <com.project.currencyconverter.data.util.CurveGraphDrawable
         android:id="@+id/cgv"
         android:layout_width="0dp"
         android:layout_height="250dp"
