@@ -8,11 +8,12 @@ import retrofit2.http.*
 
 interface ApiList {
 
-    @POST("convert")
+    @POST("latest/convert")
     suspend fun convert(
         @Query("access_key") key: String,
         @Body converterRequest: ConverterRequest
     ): Response<ConverterResponse> // body data
+
 
 }
 

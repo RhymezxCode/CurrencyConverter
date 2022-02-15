@@ -12,7 +12,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/calculatorFragmentContainer"
-        android:name="com.project.currencyconverter.CalculatorFragment"
+        android:name="com.project.currencyconverter.ui.converter.CalculatorFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +22,10 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/graphFragmentContainer"
-        android:name="com.project.currencyconverter.GraphFragment"
+        android:name="com.project.currencyconverter.ui.converter.GraphFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calculatorFragmentContainer"

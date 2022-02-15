@@ -9,7 +9,7 @@ import com.project.currencyconverter.data.repository.ConverterRepository
 
 class ConverterViewModelFactory(
     val app: Application,
-    val repo: ConverterRepository
+    private val repo: ConverterRepository
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
